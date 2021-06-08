@@ -52,20 +52,34 @@ Array.prototype.myFilter = function (callBack) {
 
 outputArray = [];
 console.log("Testing filter()");
-outputArray = myTestArray.filter(element => element == 'b');
+outputArray = myTestArray.filter(element => element === 'b');
 console.log(outputArray);
 
 outputArray = [];
 console.log("Testing myFilter()");
-outputArray = myTestArray.myFilter(element => element == 'b');
+outputArray = myTestArray.myFilter(element => element === 'b');
 console.log(outputArray);
 
 console.log('\n');
 
 //My custom implementation of Array.prototype.some() 
-Array.prototype.mySome = () => {
-
+Array.prototype.mySome = function (callBack) {
+    for (let i = 0; i < this.length; i++) {
+        if (callBack(this[i]))
+            return true;
+    }
+    return false;
 }
+
+console.log("Testing some()");
+console.log("Is there a 'b' in myTestArray: ", myTestArray.some(element => element === 'b'));
+console.log("Is there a 'd' in myTestArray: ", myTestArray.some(element => element === 'd'));
+
+console.log("Testing mySome()");
+console.log("Is there a 'b' in myTestArray: ", myTestArray.mySome(element => element === 'b'));
+console.log("Is there a 'd' in myTestArray: ", myTestArray.mySome(element => element === 'd'));
+
+console.log('\n');
 
 //My custom implementation of Array.prototype.every() 
 Array.prototype.myEvery = () => {
