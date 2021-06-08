@@ -3,10 +3,17 @@
 //Prof. Melissa Lynch
 //Assignment #2: JavaScript
 
-//My custom implementation of Array.prototype.forEach() 
-Array.prototype.myEach = () => {
+let myTestArray = ['a', 'b', 'c'];
 
+//My custom implementation of Array.prototype.forEach() 
+Array.prototype.myEach = (callBack) => {
+    for (let i = 0; i < this.length; i++) {
+        callBack(this[i]);
+    }
 }
+
+myTestArray.forEach(element => console.log(element));
+myTestArray.myEach(element => console.log(element));
 
 //My custom implementation of Array.prototype.map() 
 Array.prototype.myMap = () => {
