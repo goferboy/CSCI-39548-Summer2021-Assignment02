@@ -7,8 +7,8 @@ const myTestArray = ['a', 'b', 'c'];
 
 //My custom implementation of Array.prototype.forEach() 
 Array.prototype.myEach = function (callBack) {
-    for (let i = 0; i < this.length; i++)
-        callBack(this[i]);
+    for (let element of this)
+        callBack(element);
 }
 
 console.log("Testing forEach()");
@@ -43,9 +43,9 @@ console.log('\n');
 Array.prototype.myFilter = function (callBack) {
     let returnArray = [];
     let insertCounter = 0;
-    for (let i = 0; i < this.length; i++) {
-        if (callBack(this[i]))
-            returnArray[insertCounter++] = this[i];
+    for (let element of this) {
+        if (callBack(element))
+            returnArray[insertCounter++] = element;
     }
     return returnArray;
 }
@@ -63,10 +63,10 @@ console.log(outputArray);
 console.log('\n');
 
 //My custom implementation of Array.prototype.some() 
-Array.prototype.mySome = function (callBack) {
-    for (let i = 0; i < this.length; i++) {
-        if (callBack(this[i]))
-            return true;
+Array.prototype.mySome = function(callBack) {
+    for (let element of this) {
+        if (callBack(element))
+        return true;
     }
     return false;
 }
@@ -82,7 +82,7 @@ console.log("Is there a 'd' in myTestArray: ", myTestArray.mySome(element => ele
 console.log('\n');
 
 //My custom implementation of Array.prototype.every() 
-Array.prototype.myEvery = () => {
+Array.prototype.myEvery = function(callBack) {
     for (let i = 0; i < this.length; i++) {
         if (!callBack(this[i]))
             return false;
@@ -90,8 +90,8 @@ Array.prototype.myEvery = () => {
     return true;
 }
 
-for (element in myTestArray)
-    console.log(element.valueOf());
+for (let element of myTestArray)
+    console.log(element);
 
 // console.log("Testing every()");
 // console.log("Does every element have a valueOf() greater than 90: ", myTestArray.some(element => element === 'b'));
