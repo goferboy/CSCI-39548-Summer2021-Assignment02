@@ -3,7 +3,7 @@
 //Prof. Melissa Lynch
 //Assignment #2: JavaScript
 
-let myTestArray = ['a', 'b', 'c'];
+const myTestArray = ['a', 'b', 'c'];
 
 //My custom implementation of Array.prototype.forEach() 
 Array.prototype.myEach = function (callBack) {
@@ -13,13 +13,31 @@ Array.prototype.myEach = function (callBack) {
 
 console.log("Testing forEach()");
 myTestArray.forEach(element => console.log(element));
+
 console.log("Testing myEach()");
 myTestArray.myEach(element => console.log(element));
 
-//My custom implementation of Array.prototype.map() 
-Array.prototype.myMap = () => {
+console.log('\n');
 
+//My custom implementation of Array.prototype.map() 
+Array.prototype.myMap = function (callBack) {
+    let returnArray = [];
+    for (let i = 0; i < this.length; i++)
+        returnArray[i] = callBack(this[i]);
+    return returnArray;
 }
+
+console.log("Testing map()");
+let mapArray = myTestArray.map(element => element.toUpperCase());
+console.log(mapArray);
+
+//clear mapArray for a clean test of myMap()
+mapArray = [];
+console.log("Testing myMap()");
+mapArray = myTestArray.myMap(element => element.toUpperCase());
+console.log(mapArray);
+
+console.log('\n');
 
 //My custom implementation of Array.prototype.filter() 
 Array.prototype.myFilter = () => {
