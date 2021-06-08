@@ -83,8 +83,26 @@ console.log('\n');
 
 //My custom implementation of Array.prototype.every() 
 Array.prototype.myEvery = () => {
-
+    for (let i = 0; i < this.length; i++) {
+        if (!callBack(this[i]))
+            return false;
+    }
+    return true;
 }
+
+for (element in myTestArray)
+    console.log(element.valueOf());
+
+// console.log("Testing every()");
+// console.log("Does every element have a valueOf() greater than 90: ", myTestArray.some(element => element === 'b'));
+// console.log("Is there a 'd' in myTestArray: ", myTestArray.some(element => element === 'd'));
+
+// console.log("Testing mySome()");
+// console.log("Is there a 'b' in myTestArray: ", myTestArray.mySome(element => element === 'b'));
+// console.log("Is there a 'd' in myTestArray: ", myTestArray.mySome(element => element === 'd'));
+
+// console.log('\n');
+
 
 //My custom implementation of Array.prototype.reduce() 
 Array.prototype.myReduce = () => {
