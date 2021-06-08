@@ -28,21 +28,39 @@ Array.prototype.myMap = function (callBack) {
 }
 
 console.log("Testing map()");
-let mapArray = myTestArray.map(element => element.toUpperCase());
-console.log(mapArray);
+let outputArray = myTestArray.map(element => element.toUpperCase());
+console.log(outputArray);
 
-//clear mapArray for a clean test of myMap()
-mapArray = [];
+//clear outputArray for a clean test of myMap()
+outputArray = [];
 console.log("Testing myMap()");
-mapArray = myTestArray.myMap(element => element.toUpperCase());
-console.log(mapArray);
+outputArray = myTestArray.myMap(element => element.toUpperCase());
+console.log(outputArray);
 
 console.log('\n');
 
 //My custom implementation of Array.prototype.filter() 
-Array.prototype.myFilter = () => {
-
+Array.prototype.myFilter = function (callBack) {
+    let returnArray = [];
+    let insertCounter = 0;
+    for (let i = 0; i < this.length; i++) {
+        if (callBack(this[i]))
+            returnArray[insertCounter++] = this[i];
+    }
+    return returnArray;
 }
+
+outputArray = [];
+console.log("Testing filter()");
+outputArray = myTestArray.filter(element => element == 'b');
+console.log(outputArray);
+
+outputArray = [];
+console.log("Testing myFilter()");
+outputArray = myTestArray.myFilter(element => element == 'b');
+console.log(outputArray);
+
+console.log('\n');
 
 //My custom implementation of Array.prototype.some() 
 Array.prototype.mySome = () => {
