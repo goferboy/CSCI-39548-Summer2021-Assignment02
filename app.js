@@ -6,13 +6,14 @@
 let myTestArray = ['a', 'b', 'c'];
 
 //My custom implementation of Array.prototype.forEach() 
-Array.prototype.myEach = (callBack) => {
-    for (let i = 0; i < this.length; i++) {
+Array.prototype.myEach = function (callBack) {
+    for (let i = 0; i < this.length; i++)
         callBack(this[i]);
-    }
 }
 
+console.log("Testing forEach()");
 myTestArray.forEach(element => console.log(element));
+console.log("Testing myEach()");
 myTestArray.myEach(element => console.log(element));
 
 //My custom implementation of Array.prototype.map() 
