@@ -17,7 +17,7 @@ myTestArray.forEach(element => console.log(element));
 console.log("Testing myEach()");
 myTestArray.myEach(element => console.log(element));
 
-console.log('\n');
+console.log();
 
 //My custom implementation of Array.prototype.map() 
 Array.prototype.myMap = function (callBack) {
@@ -37,7 +37,7 @@ console.log("Testing myMap()");
 outputArray = myTestArray.myMap(element => element.toUpperCase());
 console.log(outputArray);
 
-console.log('\n');
+console.log();
 
 //My custom implementation of Array.prototype.filter() 
 Array.prototype.myFilter = function (callBack) {
@@ -60,13 +60,13 @@ console.log("Testing myFilter()");
 outputArray = myTestArray.myFilter(element => element === 'b');
 console.log(outputArray);
 
-console.log('\n');
+console.log();
 
 //My custom implementation of Array.prototype.some() 
 Array.prototype.mySome = function(callBack) {
     for (let element of this) {
         if (callBack(element))
-        return true;
+            return true;
     }
     return false;
 }
@@ -79,29 +79,26 @@ console.log("Testing mySome()");
 console.log("Is there a 'b' in myTestArray: ", myTestArray.mySome(element => element === 'b'));
 console.log("Is there a 'd' in myTestArray: ", myTestArray.mySome(element => element === 'd'));
 
-console.log('\n');
+console.log();
 
 //My custom implementation of Array.prototype.every() 
 Array.prototype.myEvery = function(callBack) {
-    for (let i = 0; i < this.length; i++) {
-        if (!callBack(this[i]))
+    for (let element of this) {
+        if (!callBack(element))
             return false;
     }
     return true;
 }
 
-for (let element of myTestArray)
-    console.log(element);
+console.log("Testing every()");
+console.log("Does every element have a charCodeAt() value greater than 96: ",myTestArray.every(element => element.charCodeAt(0) > 96));
+console.log("Does every element have a charCodeAt() value greater than 97: ",myTestArray.every(element => element.charCodeAt(0) > 97));
 
-// console.log("Testing every()");
-// console.log("Does every element have a valueOf() greater than 90: ", myTestArray.some(element => element === 'b'));
-// console.log("Is there a 'd' in myTestArray: ", myTestArray.some(element => element === 'd'));
+console.log("Testing myEvery()");
+console.log("Does every element have a charCodeAt() value greater than 96: ",myTestArray.myEvery(element => element.charCodeAt(0) > 96));
+console.log("Does every element have a charCodeAt() value greater than 97: ",myTestArray.myEvery(element => element.charCodeAt(0) > 97));
 
-// console.log("Testing mySome()");
-// console.log("Is there a 'b' in myTestArray: ", myTestArray.mySome(element => element === 'b'));
-// console.log("Is there a 'd' in myTestArray: ", myTestArray.mySome(element => element === 'd'));
-
-// console.log('\n');
+console.log();
 
 
 //My custom implementation of Array.prototype.reduce() 
