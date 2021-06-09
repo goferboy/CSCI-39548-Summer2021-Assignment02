@@ -182,18 +182,19 @@ Array.prototype.myPush = function(newElement) {
 
 console.log("Testing push()");
 outputArray = myTestArray;
-console.log(outputArray.length, "elements");
+console.log("# of Elements:", outputArray.length);
 console.log(outputArray);
-console.log(outputArray.push('d'), "elements");
+console.log("# of Elements:", outputArray.push('d'));
 console.log(outputArray);
 
 console.log("Testing myPush()");
 outputArray = myTestArray;
-console.log(outputArray.length, "elements");
+console.log("# of Elements:", outputArray.length);
 console.log(outputArray);
-console.log(outputArray.myPush('d'), "elements");
+console.log("# of Elements:", outputArray.myPush('d'));
 console.log(outputArray);
 
+console.log();
 
 //My custom implementation of Array.prototype.lastIndexOf() 
 Array.prototype.myLastIndexOf = () => {
