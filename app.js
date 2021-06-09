@@ -248,8 +248,14 @@ console.log();
 ************************************************************
 */
 
-Array.prototype.myPush = function(newElement) {
-    this[this.length] = newElement;
+// Can accept multiple arguments
+Array.prototype.myPush = function(...newElements) {
+    for (newElement of newElements)
+        //Note: this.length increments after each interation
+        //since a new element is inserted. Therefore, 
+        //this.length will always point to the next empty
+        //element after the last filled one.
+        this[this.length] = newElement;
     return this.length;
 }
 
@@ -260,14 +266,14 @@ let pushArray = [...myTestArray];
 console.log("Testing push()");
 console.log("# of Elements:", pushArray.length);
 console.log(pushArray);
-console.log("# of Elements:", pushArray.push('a'));
+console.log("# of Elements:", pushArray.push('a', 'd', 'f'));
 console.log(pushArray);
 
 console.log("Testing myPush()");
 pushArray = [...myTestArray];
 console.log("# of Elements:", pushArray.length);
 console.log(pushArray);
-console.log("# of Elements:", pushArray.myPush('a'));
+console.log("# of Elements:", pushArray.myPush('a', 'd', 'f'));
 console.log(pushArray);
 
 console.log();
