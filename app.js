@@ -297,11 +297,11 @@ Array.prototype.myLastIndexOf = function(queryItem) {
 // Using push array to demonstrate difference in return index
 console.log("Testing lastIndexOf()");
 console.log("myTestArray for 'a':", myTestArray.lastIndexOf('a'));
-console.log("outputArray for 'a':", pushArray.lastIndexOf('a'));
+console.log("pushArray for 'a':", pushArray.lastIndexOf('a'));
 
 console.log("Testing myLastIndexOf()");
 console.log("myTestArray for 'a':", myTestArray.myLastIndexOf('a'));
-console.log("outputArray for 'a':", pushArray.myLastIndexOf('a'));
+console.log("pushArray for 'a':", pushArray.myLastIndexOf('a'));
 
 console.log();
 
