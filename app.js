@@ -136,10 +136,23 @@ console.log(myTestArray.myReduce((accumulator, currentValue) => {
     return accumulator + ('/' + currentValue);
 }, '3'));
 
-//My custom implementation of Array.prototype.includes() 
-Array.prototype.myIncludes = () => {
+console.log();
 
+//My custom implementation of Array.prototype.includes() 
+Array.prototype.myIncludes = function(queryItem) {
+    for (let element of this) {
+        if (element === queryItem)
+            return true;
+    }
+    return false;
 }
+
+console.log("Testing includes()");
+console.log(myTestArray.includes('a'));
+console.log(myTestArray.includes('aa'));
+console.log("Testing myIncludes()");
+console.log(myTestArray.myIncludes('a'));
+console.log(myTestArray.myIncludes('aa'));
 
 //My custom implementation of Array.prototype.indexOf() 
 Array.prototype.myIndexOf = () => {
