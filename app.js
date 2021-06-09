@@ -1,16 +1,30 @@
 //Henry Baum
 //CSCI-39548-01
 //Prof. Melissa Lynch
+//Date: June 14 2021
 //Assignment #2: JavaScript
 
+// Test Array For Array functions
 const myTestArray = ['a', 'b', 'c'];
+// Test Object for Object functions
+const object = {
+    a: "Henry",
+    b: 41,
+    c: true
+};
 
-//My custom implementation of Array.prototype.forEach() 
+/*
+************************************************************
+***  Custom implementation of Array.prototype.forEach()  ***
+************************************************************
+*/
+
 Array.prototype.myEach = function (callBack) {
     for (let element of this)
         callBack(element);
 }
 
+// Test comparison between forEach() and myEach()
 console.log("Testing forEach()");
 myTestArray.forEach(element => console.log(element));
 
@@ -19,7 +33,12 @@ myTestArray.myEach(element => console.log(element));
 
 console.log();
 
-//My custom implementation of Array.prototype.map() 
+/*
+************************************************************
+***    Custom implementation of Array.prototype.map()    ***
+************************************************************
+*/
+
 Array.prototype.myMap = function (callBack) {
     let returnArray = [];
     for (let i = 0; i < this.length; i++)
@@ -27,19 +46,21 @@ Array.prototype.myMap = function (callBack) {
     return returnArray;
 }
 
+// Test comparison between map() and myMap()
 console.log("Testing map()");
-let outputArray = myTestArray.map(element => element.toUpperCase());
-console.log(outputArray);
+console.log(myTestArray.map(element => element.toUpperCase()));
 
-//clear outputArray for a clean test of myMap()
-outputArray = [];
 console.log("Testing myMap()");
-outputArray = myTestArray.myMap(element => element.toUpperCase());
-console.log(outputArray);
+console.log(myTestArray.myMap(element => element.toUpperCase()));
 
 console.log();
 
-//My custom implementation of Array.prototype.filter() 
+/*
+************************************************************
+***  Custom implementation of Array.prototype.filter()   ***
+************************************************************
+*/
+
 Array.prototype.myFilter = function (callBack) {
     let returnArray = [];
     let insertCounter = 0;
@@ -50,19 +71,21 @@ Array.prototype.myFilter = function (callBack) {
     return returnArray;
 }
 
-outputArray = [];
+// Test comparison between filter() and myFilter()
 console.log("Testing filter()");
-outputArray = myTestArray.filter(element => element === 'b');
-console.log(outputArray);
+console.log(myTestArray.filter(element => element === 'b'));
 
-outputArray = [];
 console.log("Testing myFilter()");
-outputArray = myTestArray.myFilter(element => element === 'b');
-console.log(outputArray);
+console.log(myTestArray.myFilter(element => element === 'b'));
 
 console.log();
 
-//My custom implementation of Array.prototype.some() 
+/*
+************************************************************
+***   Custom implementation of Array.prototype.some()    ***
+************************************************************
+*/
+
 Array.prototype.mySome = function(callBack) {
     for (let element of this) {
         if (callBack(element))
@@ -71,6 +94,7 @@ Array.prototype.mySome = function(callBack) {
     return false;
 }
 
+// Test comparison between some() and mySome()
 console.log("Testing some()");
 console.log("Is there a 'b' in myTestArray:", myTestArray.some(element => element === 'b'));
 console.log("Is there a 'd' in myTestArray:", myTestArray.some(element => element === 'd'));
@@ -81,7 +105,13 @@ console.log("Is there a 'd' in myTestArray:", myTestArray.mySome(element => elem
 
 console.log();
 
-//My custom implementation of Array.prototype.every() 
+
+/*
+************************************************************
+***   Custom implementation of Array.prototype.every()   ***
+************************************************************
+*/
+
 Array.prototype.myEvery = function(callBack) {
     for (let element of this) {
         if (!callBack(element))
@@ -90,29 +120,45 @@ Array.prototype.myEvery = function(callBack) {
     return true;
 }
 
+// Test comparison between every() and myEvery()
+// char Values: a = 97, b = 98, c = 99
 console.log("Testing every()");
-console.log("Does every element have a charCodeAt() value greater than 96:",myTestArray.every(element => element.charCodeAt(0) > 96));
-console.log("Does every element have a charCodeAt() value greater than 97:",myTestArray.every(element => element.charCodeAt(0) > 97));
+console.log("Every element has a charCodeAt() value greater than 96:",myTestArray.every(element => element.charCodeAt(0) > 96));
+console.log("Every element has a charCodeAt() value less than 98:",myTestArray.every(element => element.charCodeAt(0) < 98));
 
 console.log("Testing myEvery()");
-console.log("Does every element have a charCodeAt() value greater than 96:",myTestArray.myEvery(element => element.charCodeAt(0) > 96));
-console.log("Does every element have a charCodeAt() value greater than 97:",myTestArray.myEvery(element => element.charCodeAt(0) > 97));
+console.log("Every element has a charCodeAt() value greater than 96:",myTestArray.myEvery(element => element.charCodeAt(0) > 96));
+console.log("Every element has a charCodeAt() value less than 98:",myTestArray.myEvery(element => element.charCodeAt(0) < 98));
 
 console.log();
 
+/*
+************************************************************
+***  Custom implementation of Array.prototype.reduce()   ***
+************************************************************
+*/
 
-//My custom implementation of Array.prototype.reduce() 
+//Can work if user provides an initial value argument or not
 Array.prototype.myReduce = function(callBack, initValue) {
     let reducedValue;
     for (let i = 0; i < this.length; i++) {
         if (i === 0) {
+            
+            //If not initial value is defined, the first
+            //element is the initial value
             if (typeof initValue == 'undefined')
                 reducedValue = this[0];
+            
+            //Else, user provided initial value is assigned
+            //and accumulation callback is called for the
+            //first element
             else {
                 reducedValue = initValue;
                 reducedValue = callBack(reducedValue, this[0]);
             }
         }
+        //iterate through rest of array after first value is
+        //determined.
         else {
             reducedValue = callBack(reducedValue, this[i]);
         }
@@ -120,6 +166,9 @@ Array.prototype.myReduce = function(callBack, initValue) {
     return reducedValue;
 }
 
+// Test comparison between reduce() and myReduce()
+// Both test with and without an optional argument of an
+// initial value
 console.log("Testing reduce()");
 console.log(myTestArray.reduce((accumulator, currentValue) => {
     return accumulator + ('/' + currentValue);
@@ -138,7 +187,12 @@ console.log(myTestArray.myReduce((accumulator, currentValue) => {
 
 console.log();
 
-//My custom implementation of Array.prototype.includes() 
+/*
+************************************************************
+***  Custom implementation of Array.prototype.includes() ***
+************************************************************
+*/
+
 Array.prototype.myIncludes = function(queryItem) {
     for (let element of this) {
         if (element === queryItem)
@@ -147,16 +201,23 @@ Array.prototype.myIncludes = function(queryItem) {
     return false;
 }
 
+// Test comparison between includes() and myIncludes()
 console.log("Testing includes()");
 console.log("myTestArray includes an 'a':", myTestArray.includes('a'));
 console.log("myTestArray includes an 'aa':", myTestArray.includes('aa'));
+
 console.log("Testing myIncludes()");
 console.log("myTestArray includes an 'a':", myTestArray.myIncludes('a'));
 console.log("myTestArray includes an 'aa':", myTestArray.myIncludes('aa'));
 
 console.log();
 
-//My custom implementation of Array.prototype.indexOf() 
+/*
+************************************************************
+***  Custom implementation of Array.prototype.indexOf()  ***
+************************************************************
+*/
+
 Array.prototype.myIndexOf = function(queryItem) {
     for (let i = 0; i < this.length; i++) {
         if (queryItem === this[i])
@@ -165,38 +226,53 @@ Array.prototype.myIndexOf = function(queryItem) {
     return -1;
 }
 
+// Test comparison between indexOf() and myIndexOf()
 console.log("Testing indexOf()");
 console.log("myTestArray's index of 'a':", myTestArray.indexOf('a'));
 console.log("myTestArray's index of 'aa':", myTestArray.indexOf('aa'));
+
 console.log("Testing myIncludes()");
 console.log("myTestArray's index of 'a':", myTestArray.myIndexOf('a'));
 console.log("myTestArray's index of 'aa':", myTestArray.myIndexOf('aa'));
 
 console.log();
 
-//My custom implementation of Array.prototype.push() 
+/*
+************************************************************
+***    Custom implementation of Array.prototype.push()   ***
+************************************************************
+*/
+
 Array.prototype.myPush = function(newElement) {
     this[this.length] = newElement;
     return this.length;
 }
 
+// Test comparison between push() and myPush()
+// Copied array used to show sucessfull pushed element
+let pushArray = [...myTestArray];
+
 console.log("Testing push()");
-outputArray = [...myTestArray];
-console.log("# of Elements:", outputArray.length);
-console.log(outputArray);
-console.log("# of Elements:", outputArray.push('a'));
-console.log(outputArray);
+console.log("# of Elements:", pushArray.length);
+console.log(pushArray);
+console.log("# of Elements:", pushArray.push('a'));
+console.log(pushArray);
 
 console.log("Testing myPush()");
-outputArray = [...myTestArray];
-console.log("# of Elements:", outputArray.length);
-console.log(outputArray);
-console.log("# of Elements:", outputArray.myPush('a'));
-console.log(outputArray);
+pushArray = [...myTestArray];
+console.log("# of Elements:", pushArray.length);
+console.log(pushArray);
+console.log("# of Elements:", pushArray.myPush('a'));
+console.log(pushArray);
 
 console.log();
 
-//My custom implementation of Array.prototype.lastIndexOf() 
+/*
+************************************************************
+***Custom implementation of Array.prototype.lastIndexOf()***
+************************************************************
+*/
+
 Array.prototype.myLastIndexOf = function(queryItem) {
     let found = -1;
     for (let i = 0; i < this.length; i++) {
@@ -206,17 +282,24 @@ Array.prototype.myLastIndexOf = function(queryItem) {
     return found;
 }
 
+// Test comparison between lastIndexOf() and myLastIndexOf()
+// Using push array to demonstrate difference in return index
 console.log("Testing lastIndexOf()");
 console.log("myTestArray for 'a':", myTestArray.lastIndexOf('a'));
-console.log("outputArray for 'a':", outputArray.lastIndexOf('a'));
+console.log("outputArray for 'a':", pushArray.lastIndexOf('a'));
 
 console.log("Testing myLastIndexOf()");
 console.log("myTestArray for 'a':", myTestArray.myLastIndexOf('a'));
-console.log("outputArray for 'a':", outputArray.myLastIndexOf('a'));
+console.log("outputArray for 'a':", pushArray.myLastIndexOf('a'));
 
 console.log();
 
-//My custom implementation of Object.keys() 
+/*
+************************************************************
+***        Custom implementation of Object.keys()        ***
+************************************************************
+*/
+
 Object.grabKeys = function(object) {
     let returnArray = [];
     let counter = 0;
@@ -225,20 +308,21 @@ Object.grabKeys = function(object) {
     return returnArray;
 }
 
-let object = {
-    a: "Henry",
-    b: 41,
-    c: true
-};
-
+// Test comparison between keys() and grabKeys()
 console.log("Testing Object.keys")
 console.log(Object.keys(object));
+
 console.log("Testing Object.grabKeys")
 console.log(Object.grabKeys(object));
 
 console.log();
 
-//My custom implementation of Object.values() 
+/*
+************************************************************
+***       Custom implementation of Object.values()       ***
+************************************************************
+*/
+
 Object.grabValues = function(object) {
     let returnArray = [];
     let counter = 0;
@@ -247,7 +331,9 @@ Object.grabValues = function(object) {
     return returnArray;
 }
 
+// Test comparison between values() and grabValues()
 console.log("Testing Object.values");
 console.log(Object.values(object));
+
 console.log("Testing Object.grabValues");
 console.log(Object.grabValues(object));
