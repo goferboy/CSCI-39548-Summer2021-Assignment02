@@ -72,12 +72,12 @@ Array.prototype.mySome = function(callBack) {
 }
 
 console.log("Testing some()");
-console.log("Is there a 'b' in myTestArray: ", myTestArray.some(element => element === 'b'));
-console.log("Is there a 'd' in myTestArray: ", myTestArray.some(element => element === 'd'));
+console.log("Is there a 'b' in myTestArray:", myTestArray.some(element => element === 'b'));
+console.log("Is there a 'd' in myTestArray:", myTestArray.some(element => element === 'd'));
 
 console.log("Testing mySome()");
-console.log("Is there a 'b' in myTestArray: ", myTestArray.mySome(element => element === 'b'));
-console.log("Is there a 'd' in myTestArray: ", myTestArray.mySome(element => element === 'd'));
+console.log("Is there a 'b' in myTestArray:", myTestArray.mySome(element => element === 'b'));
+console.log("Is there a 'd' in myTestArray:", myTestArray.mySome(element => element === 'd'));
 
 console.log();
 
@@ -91,12 +91,12 @@ Array.prototype.myEvery = function(callBack) {
 }
 
 console.log("Testing every()");
-console.log("Does every element have a charCodeAt() value greater than 96: ",myTestArray.every(element => element.charCodeAt(0) > 96));
-console.log("Does every element have a charCodeAt() value greater than 97: ",myTestArray.every(element => element.charCodeAt(0) > 97));
+console.log("Does every element have a charCodeAt() value greater than 96:",myTestArray.every(element => element.charCodeAt(0) > 96));
+console.log("Does every element have a charCodeAt() value greater than 97:",myTestArray.every(element => element.charCodeAt(0) > 97));
 
 console.log("Testing myEvery()");
-console.log("Does every element have a charCodeAt() value greater than 96: ",myTestArray.myEvery(element => element.charCodeAt(0) > 96));
-console.log("Does every element have a charCodeAt() value greater than 97: ",myTestArray.myEvery(element => element.charCodeAt(0) > 97));
+console.log("Does every element have a charCodeAt() value greater than 96:",myTestArray.myEvery(element => element.charCodeAt(0) > 96));
+console.log("Does every element have a charCodeAt() value greater than 97:",myTestArray.myEvery(element => element.charCodeAt(0) > 97));
 
 console.log();
 
@@ -148,11 +148,11 @@ Array.prototype.myIncludes = function(queryItem) {
 }
 
 console.log("Testing includes()");
-console.log("myTestArray includes an 'a': ", myTestArray.includes('a'));
-console.log("myTestArray includes an 'aa': ", myTestArray.includes('aa'));
+console.log("myTestArray includes an 'a':", myTestArray.includes('a'));
+console.log("myTestArray includes an 'aa':", myTestArray.includes('aa'));
 console.log("Testing myIncludes()");
-console.log("myTestArray includes an 'a': ", myTestArray.myIncludes('a'));
-console.log("myTestArray includes an 'aa': ", myTestArray.myIncludes('aa'));
+console.log("myTestArray includes an 'a':", myTestArray.myIncludes('a'));
+console.log("myTestArray includes an 'aa':", myTestArray.myIncludes('aa'));
 
 console.log();
 
@@ -166,11 +166,11 @@ Array.prototype.myIndexOf = function(queryItem) {
 }
 
 console.log("Testing indexOf()");
-console.log("myTestArray's index of 'a': ", myTestArray.indexOf('a'));
-console.log("myTestArray's index of 'aa': ", myTestArray.indexOf('aa'));
+console.log("myTestArray's index of 'a':", myTestArray.indexOf('a'));
+console.log("myTestArray's index of 'aa':", myTestArray.indexOf('aa'));
 console.log("Testing myIncludes()");
-console.log("myTestArray's index of 'a': ", myTestArray.myIndexOf('a'));
-console.log("myTestArray's index of 'aa': ", myTestArray.myIndexOf('aa'));
+console.log("myTestArray's index of 'a':", myTestArray.myIndexOf('a'));
+console.log("myTestArray's index of 'aa':", myTestArray.myIndexOf('aa'));
 
 //My custom implementation of Array.prototype.push() 
 Array.prototype.myPush = () => {
