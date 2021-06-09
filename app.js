@@ -209,6 +209,7 @@ Array.prototype.myLastIndexOf = function(queryItem) {
 console.log("Testing lastIndexOf()");
 console.log("myTestArray for 'a':", myTestArray.lastIndexOf('a'));
 console.log("outputArray for 'a':", outputArray.lastIndexOf('a'));
+
 console.log("Testing myLastIndexOf()");
 console.log("myTestArray for 'a':", myTestArray.myLastIndexOf('a'));
 console.log("outputArray for 'a':", outputArray.myLastIndexOf('a'));
@@ -216,11 +217,37 @@ console.log("outputArray for 'a':", outputArray.myLastIndexOf('a'));
 console.log();
 
 //My custom implementation of Object.keys() 
-Object.grabKeys = () => {
-
+Object.grabKeys = function(object) {
+    let returnArray = [];
+    for (let keys in object)
+        returnArray.myPush(keys);
+    return returnArray;
 }
+
+let object = {
+    a: "Henry",
+    b: 41,
+    c: true
+};
+
+console.log("Testing Object.keys")
+console.log(Object.keys(object));
+console.log("Testing Object.grabKeys")
+console.log(Object.grabKeys(object));
+
+console.log();
 
 //My custom implementation of Object.values() 
-Object.grabValues = () => {
-
+Object.grabValues = function(object) {
+    let returnArray = [];
+    for (let keys in object)
+        returnArray.myPush(object[keys]);
+    return returnArray;
 }
+
+console.log("Testing Object.values");
+console.log(Object.values(object));
+console.log("Testing Object.grabValues");
+console.log(Object.grabValues(object));
+
+console.log();
