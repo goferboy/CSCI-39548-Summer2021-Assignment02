@@ -102,9 +102,39 @@ console.log();
 
 
 //My custom implementation of Array.prototype.reduce() 
-Array.prototype.myReduce = () => {
-
+Array.prototype.myReduce = function(callBack, initValue) {
+    let reducedValue;
+    for (let i = 0; i < this.length; i++) {
+        if (i === 0) {
+            if (typeof initValue == 'undefined')
+                reducedValue = this[0];
+            else {
+                reducedValue = initValue;
+                reducedValue = callBack(reducedValue, this[0]);
+            }
+        }
+        else {
+            reducedValue = callBack(reducedValue, this[i]);
+        }
+    }
+    return reducedValue;
 }
+
+console.log("Testing reduce()");
+console.log(myTestArray.reduce((accumulator, currentValue) => {
+    return accumulator + ('/' + currentValue);
+}));
+console.log(myTestArray.reduce((accumulator, currentValue) => {
+    return accumulator + ('/' + currentValue);
+}, '3'));
+
+console.log("Testing myReduce()");
+console.log(myTestArray.myReduce((accumulator, currentValue) => {
+    return accumulator + ('/' + currentValue);
+}));
+console.log(myTestArray.myReduce((accumulator, currentValue) => {
+    return accumulator + ('/' + currentValue);
+}, '3'));
 
 //My custom implementation of Array.prototype.includes() 
 Array.prototype.myIncludes = () => {
