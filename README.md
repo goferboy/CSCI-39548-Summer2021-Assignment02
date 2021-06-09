@@ -1,6 +1,6 @@
 # CSCI-39548 - Summer 2021 - Assignment #2
 
-## Deployment link: **TBA**
+## Deployment link: **__[Assignment02](https://goferboy.github.io/CSCI-39548-Summer2021-Assignment02/)__**
 
 ## Group Members
 - ### Henry Baum - Github: [goferboy](https://github.com/goferboy)
