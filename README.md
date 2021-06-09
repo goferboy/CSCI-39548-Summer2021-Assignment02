@@ -1,4 +1,4 @@
-# CSCI-39548 - Summer 2021 - Assignment 2
+# CSCI-39548 - Summer 2021 - Assignment #2
 
 ## Deployment link: **TBA**
 

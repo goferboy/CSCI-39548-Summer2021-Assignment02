@@ -6,12 +6,17 @@
 
 // Test Array For Array functions
 const myTestArray = ['a', 'b', 'c'];
+console.log("Initial test array:", myTestArray);
+
 // Test Object for Object functions
-const object = {
+const myTestObject = {
     a: "Henry",
     b: 41,
     c: true
 };
+console.log("Initial test object:", myTestObject);
+
+console.log();
 
 /*
 ************************************************************
@@ -310,10 +315,10 @@ Object.grabKeys = function(object) {
 
 // Test comparison between keys() and grabKeys()
 console.log("Testing Object.keys")
-console.log(Object.keys(object));
+console.log(Object.keys(myTestObject));
 
 console.log("Testing Object.grabKeys")
-console.log(Object.grabKeys(object));
+console.log(Object.grabKeys(myTestObject));
 
 console.log();
 
@@ -333,7 +338,7 @@ Object.grabValues = function(object) {
 
 // Test comparison between values() and grabValues()
 console.log("Testing Object.values");
-console.log(Object.values(object));
+console.log(Object.values(myTestObject));
 
 console.log("Testing Object.grabValues");
-console.log(Object.grabValues(object));
+console.log(Object.grabValues(myTestObject));
