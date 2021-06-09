@@ -172,10 +172,28 @@ console.log("Testing myIncludes()");
 console.log("myTestArray's index of 'a':", myTestArray.myIndexOf('a'));
 console.log("myTestArray's index of 'aa':", myTestArray.myIndexOf('aa'));
 
-//My custom implementation of Array.prototype.push() 
-Array.prototype.myPush = () => {
+console.log();
 
+//My custom implementation of Array.prototype.push() 
+Array.prototype.myPush = function(newElement) {
+    this[this.length] = newElement;
+    return this.length;
 }
+
+console.log("Testing push()");
+outputArray = myTestArray;
+console.log(outputArray.length, "elements");
+console.log(outputArray);
+console.log(outputArray.push('d'), "elements");
+console.log(outputArray);
+
+console.log("Testing myPush()");
+outputArray = myTestArray;
+console.log(outputArray.length, "elements");
+console.log(outputArray);
+console.log(outputArray.myPush('d'), "elements");
+console.log(outputArray);
+
 
 //My custom implementation of Array.prototype.lastIndexOf() 
 Array.prototype.myLastIndexOf = () => {
