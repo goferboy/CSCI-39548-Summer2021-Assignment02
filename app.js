@@ -181,25 +181,39 @@ Array.prototype.myPush = function(newElement) {
 }
 
 console.log("Testing push()");
-outputArray = myTestArray;
+outputArray = [...myTestArray];
 console.log("# of Elements:", outputArray.length);
 console.log(outputArray);
-console.log("# of Elements:", outputArray.push('d'));
+console.log("# of Elements:", outputArray.push('a'));
 console.log(outputArray);
 
 console.log("Testing myPush()");
-outputArray = myTestArray;
+outputArray = [...myTestArray];
 console.log("# of Elements:", outputArray.length);
 console.log(outputArray);
-console.log("# of Elements:", outputArray.myPush('d'));
+console.log("# of Elements:", outputArray.myPush('a'));
 console.log(outputArray);
 
 console.log();
 
 //My custom implementation of Array.prototype.lastIndexOf() 
-Array.prototype.myLastIndexOf = () => {
-
+Array.prototype.myLastIndexOf = function(queryItem) {
+    let found = -1;
+    for (let i = 0; i < this.length; i++) {
+        if (this[i] === queryItem)
+            found = i;
+    }
+    return found;
 }
+
+console.log("Testing lastIndexOf()");
+console.log("myTestArray for 'a':", myTestArray.lastIndexOf('a'));
+console.log("outputArray for 'a':", outputArray.lastIndexOf('a'));
+console.log("Testing myLastIndexOf()");
+console.log("myTestArray for 'a':", myTestArray.myLastIndexOf('a'));
+console.log("outputArray for 'a':", outputArray.myLastIndexOf('a'));
+
+console.log();
 
 //My custom implementation of Object.keys() 
 Object.grabKeys = () => {
