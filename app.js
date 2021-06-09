@@ -219,8 +219,9 @@ console.log();
 //My custom implementation of Object.keys() 
 Object.grabKeys = function(object) {
     let returnArray = [];
+    let counter = 0;
     for (let keys in object)
-        returnArray.myPush(keys);
+        returnArray[counter++] = keys;
     return returnArray;
 }
 
@@ -240,8 +241,9 @@ console.log();
 //My custom implementation of Object.values() 
 Object.grabValues = function(object) {
     let returnArray = [];
+    let counter = 0;
     for (let keys in object)
-        returnArray.myPush(object[keys]);
+        returnArray[counter++] = object[keys];
     return returnArray;
 }
 
@@ -249,5 +251,3 @@ console.log("Testing Object.values");
 console.log(Object.values(object));
 console.log("Testing Object.grabValues");
 console.log(Object.grabValues(object));
-
-console.log();
