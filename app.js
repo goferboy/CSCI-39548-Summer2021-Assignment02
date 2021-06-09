@@ -154,10 +154,23 @@ console.log("Testing myIncludes()");
 console.log("myTestArray includes an 'a': ", myTestArray.myIncludes('a'));
 console.log("myTestArray includes an 'aa': ", myTestArray.myIncludes('aa'));
 
-//My custom implementation of Array.prototype.indexOf() 
-Array.prototype.myIndexOf = () => {
+console.log();
 
+//My custom implementation of Array.prototype.indexOf() 
+Array.prototype.myIndexOf = function(queryItem) {
+    for (let i = 0; i < this.length; i++) {
+        if (queryItem === this[i])
+            return i;
+    }
+    return -1;
 }
+
+console.log("Testing indexOf()");
+console.log("myTestArray's index of 'a': ", myTestArray.indexOf('a'));
+console.log("myTestArray's index of 'aa': ", myTestArray.indexOf('aa'));
+console.log("Testing myIncludes()");
+console.log("myTestArray's index of 'a': ", myTestArray.myIndexOf('a'));
+console.log("myTestArray's index of 'aa': ", myTestArray.myIndexOf('aa'));
 
 //My custom implementation of Array.prototype.push() 
 Array.prototype.myPush = () => {
