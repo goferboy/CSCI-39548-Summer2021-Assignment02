@@ -148,11 +148,11 @@ Array.prototype.myIncludes = function(queryItem) {
 }
 
 console.log("Testing includes()");
-console.log(myTestArray.includes('a'));
-console.log(myTestArray.includes('aa'));
+console.log("myTestArray includes an 'a': ", myTestArray.includes('a'));
+console.log("myTestArray includes an 'aa': ", myTestArray.includes('aa'));
 console.log("Testing myIncludes()");
-console.log(myTestArray.myIncludes('a'));
-console.log(myTestArray.myIncludes('aa'));
+console.log("myTestArray includes an 'a': ", myTestArray.myIncludes('a'));
+console.log("myTestArray includes an 'aa': ", myTestArray.myIncludes('aa'));
 
 //My custom implementation of Array.prototype.indexOf() 
 Array.prototype.myIndexOf = () => {
