@@ -2,7 +2,7 @@
 //CSCI-39548-01
 //Prof. Melissa Lynch
 //Date: June 14 2021
-//Assignment #2: JavaScript
+//Assignment #2: JavaScript Methods
 
 /*
 ************************************************************
@@ -84,7 +84,7 @@ Array.prototype.myReduce = function(callBack, initValue) {
     for (let i = 0; i < this.length; i++) {
         if (i === 0) {
             
-            //If not initial value is defined, the first
+            //If initial value is not defined, the first
             //element is the initial value
             if (typeof initValue == 'undefined')
                 reducedValue = this[0];
