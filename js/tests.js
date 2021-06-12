@@ -1,3 +1,15 @@
+//Henry Baum
+//CSCI-39548-01
+//Prof. Melissa Lynch
+//Date: June 14 2021
+//Assignment #2: JavaScript Methods
+
+/* 
+This file performs a comparison test between the default JS Methods and 
+the customly implemented counterparts that are based on them.
+*/
+
+
 // Test Array For Array functions
 const myTestArray = ['a', 'b', 'c'];
 console.log("Initial test array:", myTestArray);
