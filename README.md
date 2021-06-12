@@ -25,4 +25,4 @@ For this assignment, you will recreate these methods using JavaScript functions.
 
 ## Technologies Used
 - HTML
-- Vanilla JS
+- JavaScript
