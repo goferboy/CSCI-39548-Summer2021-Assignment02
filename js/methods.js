@@ -10,7 +10,7 @@
 ************************************************************
 */
 
-Array.prototype.myEach = function (callBack) {
+Array.prototype.myEach = function(callBack) {
     for (let element of this)
         callBack(element);
 }
@@ -21,7 +21,7 @@ Array.prototype.myEach = function (callBack) {
 ************************************************************
 */
 
-Array.prototype.myMap = function (callBack) {
+Array.prototype.myMap = function(callBack) {
     let returnArray = [];
     for (let i = 0; i < this.length; i++)
         returnArray[i] = callBack(this[i]);
